@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="reset.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
-    />
-    <title>Dashboard | Upcareera</title>
+    /> -->
+    <script src="script.js" defer></script>
+    <title>Book Library | Upcareera</title>
   </head>
   <body>
     <div class="container">
@@ -46,7 +47,6 @@
           <!-- </div> -->
         </div>
         <div class="bottombar">
-          <!-- <div class="profile"> -->
           <img
             src="assets/icons/icons8-anonymous-mask-100.svg"
             class="icon"
@@ -56,12 +56,9 @@
             Hi there, <br />
             <span class="username">Morgan Freeman (@mfreeman)</span>
           </p>
-          <!-- </div> -->
-          <!-- <div class="action-buttons"> -->
-          <button class="profile-button-action push-left">New</button>
-          <button class="profile-button-action">Upload</button>
-          <button class="profile-button-action">Share</button>
-          <!-- </div> -->
+          <button class="profile-button-action push-left">Add</button>
+          <button class="profile-button-action">Read</button>
+          <button class="profile-button-action">Delete</button>
         </div>
       </div>
       <div class="sidebar">
@@ -74,6 +71,11 @@
           <img src="assets/icons/home.svg" class="sidebar-icon" alt="" />
           <a href="">Home</a>
         </p>
+        <p class="external-link">
+          <img src="assets/icons/bookshelf.svg" class="sidebar-icon" alt="" />
+          <a href="">Bookshelf</a>
+        </p>
+
         <p class="external-link">
           <img src="assets/icons/smart-card.svg" class="sidebar-icon" alt="" />
           <a href="">Profile</a>
@@ -124,93 +126,63 @@
         </p>
       </div>
       <div class="projects">
-        <h2>Your Projects</h2>
+        <h2>Your Bookshelf</h2>
+        <!--  -->
+        <!--  -->
+        <!--  -->
+        <div class="modal-add-book">
+          <div class="modal-header">
+            <h1>Add Your Book</h1>
+            <button id="close-button">&times;</button>
+          </div>
+          <form class="add-book-form" id="add-book-form">
+            <p><label for="book-title">Book Title</label></p>
+            <input
+              type="text"
+              name="book-title"
+              id="book-title"
+              placeholder="Book Title"
+              required
+            />
+            <p><label for="author-name">Author Name</label></p>
+            <input
+              type="text"
+              name="author-name"
+              id="author-name"
+              placeholder="Author Name"
+              required
+            />
+            <p><label for="description">Description</label></p>
+            <textarea
+              name="description"
+              id="description"
+              cols="30"
+              rows="5"
+            ></textarea>
+            <p id="checkbox">
+              <label for="read">Already read it?</label>
+              <input type="checkbox" name="read" id="read" />
+            </p>
+            <button type="submit" id="submit" name="submit">Add</button>
+          </form>
+        </div>
+        <!--  -->
+        <!--  -->
+        <!--  -->
         <div class="card-container">
+          <div id="overlay"></div>
           <div class="card">
-            <h3>Calculator</h3>
-            <p>
+            <h3 class="title">Title</h3>
+            <h4 class="author">Author</h4>
+            <p class="description">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
               facilis alias, nulla inventore dolorem et?
             </p>
             <div class="card-buttons">
-              <img src="assets/icons/thumb-up-outline.svg" alt="" />
-              <img src="assets/icons/thumb-down-outline.svg" alt="" />
-              <img src="assets/icons/comment-processing-outline.svg" alt="" />
-              <img src="assets/icons/bookmark-outline.svg" alt="" />
-            </div>
-          </div>
-          <div class="card">
-            <h3>Sign Up Page</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-              facilis alias, nulla inventore dolorem et? Veniam aliquid quis
-              voluptas labore.
-            </p>
-            <div class="card-buttons">
-              <img src="assets/icons/thumb-up-outline.svg" alt="" />
-              <img src="assets/icons/thumb-down-outline.svg" alt="" />
-              <img src="assets/icons/comment-processing-outline.svg" alt="" />
-              <img src="assets/icons/bookmark-outline.svg" alt="" />
-            </div>
-          </div>
-          <div class="card">
-            <h3>Etch A Sketch</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-              facilis alias, nulla inventore dolorem et? Veniam aliquid quis
-              voluptas labore rerum doloribus itaque cupiditate facere, ipsa
-              ipsam.
-            </p>
-
-            <div class="card-buttons">
-              <img src="assets/icons/thumb-up-outline.svg" alt="" />
-              <img src="assets/icons/thumb-down-outline.svg" alt="" />
-              <img src="assets/icons/comment-processing-outline.svg" alt="" />
-              <img src="assets/icons/bookmark-outline.svg" alt="" />
-            </div>
-          </div>
-          <div class="card">
-            <h3>Rock Paper Scissors</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-              facilis alias, nulla inventore dolorem et? Veniam aliquid quis
-              voluptas labore rerum doloribus itaque cupiditate facere.
-            </p>
-            <div class="card-buttons">
-              <img src="assets/icons/thumb-up-outline.svg" alt="" />
-              <img src="assets/icons/thumb-down-outline.svg" alt="" />
-              <img src="assets/icons/comment-processing-outline.svg" alt="" />
-              <img src="assets/icons/bookmark-outline.svg" alt="" />
-            </div>
-          </div>
-          <div class="card">
-            <h3>Javascript 30</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-              facilis alias.
-            </p>
-            <div class="card-buttons">
-              <img src="assets/icons/thumb-up-outline.svg" alt="" />
-              <img src="assets/icons/thumb-down-outline.svg" alt="" />
-              <img src="assets/icons/comment-processing-outline.svg" alt="" />
-              <img src="assets/icons/bookmark-outline.svg" alt="" />
-            </div>
-          </div>
-          <div class="card">
-            <h3>Javascript Exercises</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-              facilis alias, nulla inventore dolorem et? Veniam aliquid quis.
-            </p>
-            <div class="card-buttons">
-              <img src="assets/icons/thumb-up-outline.svg" alt="" />
-              <img src="assets/icons/thumb-down-outline.svg" alt="" />
-              <img src="assets/icons/comment-processing-outline.svg" alt="" />
-              <img src="assets/icons/bookmark-outline.svg" alt="" />
+              <img src="assets/icons/eye-off.svg" alt="" />
             </div>
           </div>
         </div>
-        <!-- empty div to line up the cads -->
       </div>
       <div class="announcements">
         <h2>Announcements</h2>
