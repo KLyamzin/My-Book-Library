@@ -22,6 +22,13 @@ closeButton.forEach((button) => {
   });
 });
 
+overlay.addEventListener("click", () => {
+  const activeModals = document.querySelectorAll(".modal-add-book.active");
+  activeModals.forEach((modal) => {
+    closeModal(modal);
+  });
+});
+
 function closeModal(modal) {
   if (modal == null) return;
   modal.classList.remove("active");
