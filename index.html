@@ -56,7 +56,10 @@
             Hi there, <br />
             <span class="username">Morgan Freeman (@mfreeman)</span>
           </p>
-          <button data-add-button class="profile-button-action push-left">
+          <button
+            data-add-button="#modal-add-book"
+            class="profile-button-action push-left"
+          >
             Add
           </button>
           <button data-read-button class="profile-button-action">Read</button>
@@ -133,11 +136,11 @@
         <h2>Your Bookshelf</h2>
         <!--  -->
         <!--  -->
-        <!--  -->
-        <div class="modal-add-book">
+        <!-- add book modal -->
+        <div class="modal-add-book" id="modal-add-book">
           <div class="modal-header">
             <h1>Add Your Book</h1>
-            <button id="close-button">&times;</button>
+            <button data-close-button id="close-button">&times;</button>
           </div>
           <form class="add-book-form" id="add-book-form">
             <p><label for="book-title">Book Title</label></p>
