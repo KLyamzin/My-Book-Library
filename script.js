@@ -6,6 +6,7 @@ const cardContainer = document.querySelector(".card-container");
 const addBookForm = document.querySelector("#add-book-form");
 const addBookModal = document.querySelector("#modal-add-book");
 const errorTitle = document.getElementById("errorTitle");
+let readCheckBox = document.getElementById("read");
 /* open and close buttons */
 addButton.forEach((button) => {
   button.addEventListener("click", () => {
@@ -83,6 +84,10 @@ class Library {
   duplicateCheck(newBook) {
     return this.books.some((book) => book.title === newBook.title);
   }
+  getBook(isbn) {
+    return this.books.find((book) => book.isbn === isbn);
+  }
+  changeReadStatus() {}
 }
 
 /* add book to collection*/
@@ -138,7 +143,6 @@ function createCard(book) {
   description.classList.add("description");
   cardButtons.classList.add("card-buttons");
   isbnNumber.classList.add("isbn");
-  isRead.setAttribute("src", "assets/icons/eye-off.svg");
   isRead.classList.add("read");
 
   title.textContent = `${book.title}`;
@@ -146,7 +150,13 @@ function createCard(book) {
   isbnNumber.textContent = `${book.isbn}`;
   description.textContent = `${book.description}`;
   isRead.textContent = `${book.read}`;
-
+  if (isRead.textContent == "true") {
+    isRead.setAttribute("src", "assets/icons/eye-check.svg");
+  }
+  if (isRead.textContent == "false") {
+    isRead.setAttribute("src", "assets/icons/eye-off.svg");
+  }
+  isRead.onclick = changeRead;
   card.appendChild(title);
   card.appendChild(author);
   card.appendChild(description);
@@ -154,6 +164,13 @@ function createCard(book) {
   cardButtons.appendChild(isRead);
   card.appendChild(cardButtons);
   cardContainer.appendChild(card);
+}
+function changeRead(e) {
+  const isbn = e.target.parentNode.firstChild.innerHTML;
+  const book = library.getBook(isbn);
+  book.read = !book.read;
+  saveLocal();
+  displayBook();
 }
 
 displayBook();
