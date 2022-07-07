@@ -215,6 +215,13 @@ html {
 .modal-add-book.active {
   transform: translate(-50%, -50%) scale(1);
 }
+.errorTitle {
+  display: none;
+}
+.errorTitle.active {
+  display: initial;
+  color: red;
+}
 .modal-header {
   padding: 10px;
   display: flex;
