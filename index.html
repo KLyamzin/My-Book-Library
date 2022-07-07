@@ -159,6 +159,14 @@
               placeholder="Author Name"
               required
             />
+            <p><label for="isbn">ISBN</label></p>
+            <input
+              type="text"
+              name="isbn"
+              id="isbn"
+              placeholder="ISBN"
+              required
+            />
             <p><label for="description">Description</label></p>
             <textarea
               name="description"
@@ -170,15 +178,17 @@
               <label for="read">Already read it?</label>
               <input type="checkbox" name="read" id="read" />
             </p>
-            <button type="submit" id="submit" name="submit">Add</button>
+            <button action="#" type="submit" id="submit" name="submit">
+              Add
+            </button>
           </form>
         </div>
         <!--  -->
         <!--  -->
         <!--  -->
+        <div id="overlay"></div>
         <div class="card-container">
-          <div id="overlay"></div>
-          <div class="card">
+          <!--           <div class="card">
             <h3 class="title">Title</h3>
             <h4 class="author">Author</h4>
             <p class="description">
@@ -188,7 +198,7 @@
             <div class="card-buttons">
               <img src="assets/icons/eye-off.svg" alt="" />
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="announcements">
