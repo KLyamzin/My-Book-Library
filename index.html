@@ -143,7 +143,12 @@
             <button data-close-button id="close-button">&times;</button>
           </div>
           <form class="add-book-form" id="add-book-form">
-            <p><label for="book-title">Book Title</label></p>
+            <p>
+              <label for="book-title">Book Title</label>
+              <span id="errorTitle" class="errorTitle"
+                >- This Book Already Exists</span
+              >
+            </p>
             <input
               type="text"
               name="book-title"
