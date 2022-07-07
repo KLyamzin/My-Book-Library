@@ -67,7 +67,8 @@ html {
 }
 
 .topbar .push-left,
-.bottombar .push-left {
+.bottombar .push-left,
+.card-buttons.push-left {
   margin-left: auto;
 }
 
@@ -189,15 +190,23 @@ html {
   font-weight: 100;
 }
 
+.card .card-footer {
+  display: flex;
+  gap: 3px;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
 .card .card-buttons {
   display: flex;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
   gap: 15px;
-  align-self: flex-end;
+  /* align-self: flex-end; */
 }
 
 .card .card-buttons img {
   cursor: pointer;
+  height: 25px;
 }
 
 .modal-add-book {

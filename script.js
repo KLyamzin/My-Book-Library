@@ -7,6 +7,8 @@ const addBookForm = document.querySelector("#add-book-form");
 const addBookModal = document.querySelector("#modal-add-book");
 const errorTitle = document.getElementById("errorTitle");
 let readCheckBox = document.getElementById("read");
+addBookForm.onsubmit = addBookToLibrary;
+
 /* open and close buttons */
 addButton.forEach((button) => {
   button.addEventListener("click", () => {
@@ -21,35 +23,19 @@ function openModal(modal) {
 }
 closeButton.forEach((button) => {
   button.addEventListener("click", () => {
-    // const modal = document.querySelector(".modal-add-book");
-    // closeModal(modal);
     closeModal();
   });
 });
 overlay.addEventListener("click", () => {
-  // const activeModals = document.querySelectorAll(".modal-add-book.active");
-  // activeModals.forEach((modal) => {
-  // closeModal(modal);
   closeModal();
-  // });
 });
-/* submitButton.addEventListener("submit", (e) => {
-  // e.preventDefault();
-  // const modal = document.querySelector(".modal-add-book");
-  // closeModal();
-}); */
-/* function closeModal(modal) {
-  if (modal == null) return;
-  modal.classList.remove("active");
-  overlay.classList.remove("active");
-} */
 function closeModal() {
-  // if (modal == null) return;
   addBookModal.classList.remove("active");
   overlay.classList.remove("active");
   addBookForm.reset();
   errorTitle.classList.remove("active");
 }
+
 /* constructors */
 class Book {
   constructor(title, author, isbn, description, read) {
@@ -63,23 +49,15 @@ class Book {
 
 class Library {
   constructor() {
-    this.books = [
-      {
-        title: "The Hobbit",
-        author: "John Smith",
-        isbn: "123456",
-        description: "The Hobbits and the lord of the ring",
-        read: true,
-      },
-    ];
+    this.books = [];
   }
   addBook(newBook) {
     if (!this.duplicateCheck(newBook)) {
       this.books.push(newBook);
     }
   }
-  removeBook(isbn) {
-    this.books = this.books.filter((book) => book.isbn !== isbn);
+  removeBook(title) {
+    this.books = this.books.filter((book) => book.title !== title);
   }
   duplicateCheck(newBook) {
     return this.books.some((book) => book.title === newBook.title);
@@ -87,10 +65,9 @@ class Library {
   getBook(isbn) {
     return this.books.find((book) => book.isbn === isbn);
   }
-  changeReadStatus() {}
 }
 
-/* add book to collection*/
+/* main functionality*/
 const library = new Library();
 
 function getInputValue() {
@@ -115,17 +92,12 @@ function addBookToLibrary(e) {
   }
 }
 
-addBookForm.onsubmit = addBookToLibrary;
-
 function displayBook() {
-  resetBook();
+  cardContainer.innerHTML = "";
+  restoreLocal();
   for (let book of library.books) {
     createCard(book);
   }
-}
-
-function resetBook() {
-  cardContainer.innerHTML = "";
 }
 
 function createCard(book) {
@@ -133,17 +105,24 @@ function createCard(book) {
   const title = document.createElement("h3");
   const author = document.createElement("h4");
   const description = document.createElement("p");
+  const footer = document.createElement("div");
   const cardButtons = document.createElement("div");
-  const isbnNumber = document.createElement("h4");
+  const isbnLabel = document.createElement("p");
+  const isbnNumber = document.createElement("p");
   const isRead = document.createElement("img");
+  const deleteCard = document.createElement("img");
 
   card.classList.add("card");
   title.classList.add("title");
   author.classList.add("author");
   description.classList.add("description");
   cardButtons.classList.add("card-buttons");
+  footer.classList.add("card-footer");
+  isbnLabel.innerText = `ISBN: `;
   isbnNumber.classList.add("isbn");
   isRead.classList.add("read");
+  deleteCard.classList.add("deleteCard");
+  cardButtons.classList.add("push-left");
 
   title.textContent = `${book.title}`;
   author.textContent = `${book.author}`;
@@ -156,19 +135,34 @@ function createCard(book) {
   if (isRead.textContent == "false") {
     isRead.setAttribute("src", "assets/icons/eye-off.svg");
   }
+  deleteCard.setAttribute("src", "assets/icons/trash-can.svg");
+
   isRead.onclick = changeRead;
+  deleteCard.onclick = deleteBook;
+
   card.appendChild(title);
   card.appendChild(author);
   card.appendChild(description);
-  cardButtons.appendChild(isbnNumber);
+  card.appendChild(footer);
+  footer.appendChild(isbnLabel);
+  footer.appendChild(isbnNumber);
+  footer.appendChild(cardButtons);
+  cardButtons.appendChild(deleteCard);
   cardButtons.appendChild(isRead);
-  card.appendChild(cardButtons);
   cardContainer.appendChild(card);
 }
+
 function changeRead(e) {
-  const isbn = e.target.parentNode.firstChild.innerHTML;
+  const isbn = e.target.parentNode.parentNode.firstChild.nextSibling.innerHTML;
   const book = library.getBook(isbn);
   book.read = !book.read;
+  saveLocal();
+  displayBook();
+}
+
+function deleteBook(e) {
+  const title = e.target.parentNode.parentNode.parentNode.firstChild.innerHTML;
+  library.removeBook(title);
   saveLocal();
   displayBook();
 }
@@ -177,9 +171,7 @@ displayBook();
 
 // save to local storage
 function saveLocal() {
-  if (library.books.length !== 0) {
-    localStorage.setItem("library", JSON.stringify(library.books));
-  }
+  localStorage.setItem("library", JSON.stringify(library.books));
 }
 function restoreLocal() {
   const books = JSON.parse(localStorage.getItem("library"));
@@ -195,6 +187,6 @@ function JSONToBook(book) {
     book.author,
     book.isbn,
     book.description,
-    book.isRead
+    book.read
   );
 }
