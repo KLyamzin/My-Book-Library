@@ -3,8 +3,6 @@ body,
 html {
   font-family: "Roboto", sans-serif !important;
   height: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
 }
 
 .container {
@@ -392,11 +390,6 @@ html {
   }
 }
 @media (max-width: 760px) {
-  body,
-  html {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
   .container {
     height: min-content;
     grid-template-columns: 1fr;
