@@ -62,10 +62,6 @@
           >
             Add
           </button>
-          <button data-read-button class="profile-button-action">Read</button>
-          <button data-delete-button class="profile-button-action">
-            Delete
-          </button>
         </div>
       </div>
       <div class="sidebar">
@@ -134,8 +130,6 @@
       </div>
       <div class="projects">
         <h2>Your Bookshelf</h2>
-        <!--  -->
-        <!--  -->
         <!-- add book modal -->
         <div class="modal-add-book" id="modal-add-book">
           <div class="modal-header">
@@ -167,6 +161,9 @@
             <p><label for="isbn">ISBN</label></p>
             <input
               type="text"
+              pattern="\d*"
+              minlength="10"
+              maxlength="13"
               name="isbn"
               id="isbn"
               placeholder="ISBN"
@@ -189,22 +186,8 @@
           </form>
         </div>
         <!--  -->
-        <!--  -->
-        <!--  -->
         <div id="overlay"></div>
-        <div class="card-container">
-          <!--           <div class="card">
-            <h3 class="title">Title</h3>
-            <h4 class="author">Author</h4>
-            <p class="description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-              facilis alias, nulla inventore dolorem et?
-            </p>
-            <div class="card-buttons">
-              <img src="assets/icons/eye-off.svg" alt="" />
-            </div>
-          </div> -->
-        </div>
+        <div class="card-container"></div>
       </div>
       <div class="announcements">
         <h2>Announcements</h2>

@@ -3,6 +3,8 @@ body,
 html {
   font-family: "Roboto", sans-serif !important;
   height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .container {
@@ -208,6 +210,10 @@ html {
   cursor: pointer;
   height: 25px;
 }
+.deleteCard:hover {
+  filter: invert(55%) sepia(14%) saturate(23) hue-rotate(-45deg)
+    brightness(119%) contrast(86%);
+}
 
 .modal-add-book {
   position: fixed;
@@ -386,10 +392,14 @@ html {
   }
 }
 @media (max-width: 760px) {
+  body,
+  html {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
   .container {
     height: min-content;
     grid-template-columns: 1fr;
-    /* grid-template-rows: min-content 50px 1fr min-content; */
     grid-template-rows: min-content;
   }
 
