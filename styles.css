@@ -394,6 +394,7 @@ html {
     height: min-content;
     grid-template-columns: 1fr;
     grid-template-rows: min-content;
+    width: 100%;
   }
 
   .header {
