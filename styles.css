@@ -391,7 +391,6 @@ html {
   }
 }
 
-/* Hamburger Menu */
 .hamburger-menu {
   display: none;
 }
@@ -408,6 +407,9 @@ html {
 
   .header {
     grid-row: 1;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
   }
 
   .topbar p {
@@ -418,6 +420,7 @@ html {
     height: 35px;
     padding-left: 8px;
   }
+
   .bottombar img.icon,
   .bottombar p {
     display: none;
@@ -471,6 +474,7 @@ html {
   }
   .menu__btn {
     position: fixed;
+    /* position: sticky; */
     top: 75px;
     left: 20px;
     width: 26px;
@@ -538,11 +542,4 @@ html {
     margin-right: 0;
     width: 2em;
   }
-  /*   li > img {
-    filter: invert(55%) sepia(45%) saturate(3548%) hue-rotate(167deg)
-      brightness(95%) contrast(93%);
-  } */
-  /* li > a {
-    color: #0ea5e9;
-  } */
 }
