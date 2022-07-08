@@ -6,12 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="reset.css" />
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-      rel="stylesheet"
-    /> -->
     <script src="script.js" defer></script>
     <title>Book Library | Upcareera</title>
   </head>
@@ -19,20 +13,17 @@
     <div class="container">
       <div class="header">
         <div class="topbar">
-          <!-- <div class="search-bar"> -->
           <img
             src="assets/icons/upcareera_logo_1.svg"
             class="logo-landscape"
             alt="Upcareera"
           />
-          <img
+          <!-- <img
             src="assets/icons/magnify.svg"
             class="magnifier fa_icon"
             alt="search"
-          />
-          <input type="search" />
-          <!-- </div> -->
-          <!-- <div class="notifications-name"> -->
+          /> -->
+          <input type="search" placeholder="Search..." />
           <img
             src="assets/icons/bell.svg"
             class="bell fa_icon push-left"
@@ -44,9 +35,91 @@
             alt="Morgan Freeman"
           />
           <p>Morgan Freeman</p>
-          <!-- </div> -->
         </div>
         <div class="bottombar">
+          <!--  -->
+          <!-- Hamburger Menu -->
+          <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+              <span></span>
+            </label>
+            <ul class="menu__box">
+              <li class="first-item">
+                <img
+                  src="assets/icons/home.svg"
+                  class="sidebar-icon"
+                  alt=""
+                /><a class="menu__item" href="#">Home</a>
+              </li>
+              <li>
+                <img
+                  src="assets/icons/bookshelf.svg"
+                  class="sidebar-icon"
+                  alt=""
+                /><a class="menu__item" href="#">Bookshelf</a>
+              </li>
+              <li>
+                <img
+                  src="assets/icons/smart-card.svg"
+                  class="sidebar-icon"
+                  alt=""
+                /><a class="menu__item" href="#">Profile</a>
+              </li>
+              <li>
+                <img
+                  src="assets/icons/android-messages.svg"
+                  class="sidebar-icon"
+                  alt=""
+                /><a class="menu__item" href="#">Messages</a>
+              </li>
+              <li>
+                <img
+                  src="assets/icons/history.svg"
+                  class="sidebar-icon"
+                  alt=""
+                /><a class="menu__item" href="#">History</a>
+              </li>
+              <li>
+                <img
+                  src="assets/icons/arrow-decision.svg"
+                  class="sidebar-icon"
+                  alt=""
+                />
+                <a class="menu__item" href="#">Tasks</a>
+              </li>
+              <li>
+                <img
+                  src="assets/icons/account-group.svg"
+                  class="sidebar-icon"
+                  alt=""
+                />
+                <a class="menu__item" href="">Communities</a>
+              </li>
+              <li class="push-down">
+                <img src="assets/icons/cog.svg" class="sidebar-icon" alt="" />
+                <a class="menu__item" href="">Settings</a>
+              </li>
+              <li>
+                <img
+                  src="assets/icons/help-rhombus.svg"
+                  class="sidebar-icon"
+                  alt=""
+                />
+                <a class="menu__item" href="">Support</a>
+              </li>
+              <li>
+                <img
+                  src="assets/icons/shield-lock.svg"
+                  class="sidebar-icon"
+                  alt=""
+                />
+                <a class="menu__item" href="">Privacy</a>
+              </li>
+            </ul>
+            <!--  -->
+            <!--  -->
+          </div>
           <img
             src="assets/icons/icons8-anonymous-mask-100.svg"
             class="icon"
